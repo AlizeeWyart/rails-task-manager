@@ -1,0 +1,15 @@
+<h1>Hello ! Welcome to your tasks dashboard</h1>
+<h2>Your different tasks</h2>
+<% @tasks.each do |task| %>
+  <h3><%= task.name%></h3>
+  <p>Status : <%= task.status%>
+    <%= link_to "Show it!", task_path(task)%>
+    <%= link_to "Edit it", edit_task_path(task)%>
+    <%= link_to "Delete it", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+  </p>
+<% end %>
+<%= link_to "Create a new task", tasks_new_path%></p>
+
+
